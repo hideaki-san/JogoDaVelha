@@ -86,6 +86,7 @@ void LiberarTabuleiro(char **M)
       *(M + linha) = NULL;
       }
   free(M);
+  M = NULL;
   }
 
 void InserirJogador2(char **M)
