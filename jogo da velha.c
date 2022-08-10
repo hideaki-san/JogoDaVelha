@@ -7,15 +7,19 @@
 char **AlocaMemoria()
   {
   char **M;
-  int linha=0, coluna=0;
+  int linha=3, coluna=3;
 
-  M =(char **) malloc(sizeof(char *));
+//RESERVA ESPACO NA MEMORIA COM UM ENDERECO DE MEMORIA DO TIPO ESEPCIFICO(ASSIM SENDO UM PONTEIRO QUE APONTA PARA OUTRO PONTEIRO)
+  M =(char **) malloc(linha * sizeof(char *));
 
+//PERCORRE POSICAO NA MEMORIA DOS ENDERECOS ALOCADOS ANTES
+//ALOCA EM CADA POSICAO QUANTIDADE DO TIPO DE DADO DO PONTEIRO
     for(linha = 0; linha < 3; linha++)
       {
       *(M + linha) = (char *) malloc(coluna * sizeof(char));
       }
 
+//INSERE NOS VALORES DE CHAR "espaco", ESPACO LIVRE NO TABULEIRO
     for(linha = 0; linha < 3; linha++)
       {
         for(coluna = 0; coluna < 3; coluna++)
