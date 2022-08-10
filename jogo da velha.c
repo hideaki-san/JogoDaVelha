@@ -30,6 +30,18 @@ char **AlocaMemoria()
   return(M);
   }
 
+
+void Tabuleiro(char **M)
+  {
+  system("cls");
+  printf("\n\t %c | %c | %c", (*(*(M + 0) + 0)), (*(*(M + 0) + 1)), (*(*(M + 0) + 2)));
+  printf("\n\t-----------");
+  printf("\n\t %c | %c | %c", (*(*(M + 1) + 0)), (*(*(M + 1) + 1)), (*(*(M + 1) + 2)));
+  printf("\n\t-----------");
+  printf("\n\t %c | %c | %c", (*(*(M + 2) + 0)), (*(*(M + 2) + 1)), (*(*(M + 2) + 2)));
+  }
+
+//CONTEM AS CONDICOES DE TERMINO DO JOGO
 int FinalizaJogo(char **M)
   {
   if( (*(*(M + 0) + 0)) == 'x' && (*(*(M + 0) + 1)) == 'x' && (*(*(M + 0) + 2)) == 'x' )
@@ -78,6 +90,8 @@ int FinalizaJogo(char **M)
 return 0;
   }
 
+
+//IMPORTANTE LIBERAR MEMORIA
 void LiberarTabuleiro(char **M)
   {
   int linha = 0;
@@ -90,10 +104,13 @@ void LiberarTabuleiro(char **M)
   M = NULL;
   }
 
+
+//COORDENADA DE INSERCAO NO TABUEIRO DO JOGADOR 2
 void InserirJogador2(char **M)
   {
   int linha = 0, coluna = 0;
 
+//INSERCAO PADRAO
   printf("\n\n-JOGADOR 2(x)-\n");
   printf("\nLINHA: ");
   fflush(stdin);
@@ -102,6 +119,7 @@ void InserirJogador2(char **M)
   fflush(stdin);
   scanf("%d", &coluna);
 
+//LIMITADOR DE POSICAO DO JOGADOR
     if(linha > 3 || linha < 1 || coluna > 3 || coluna < 1)
       {
         while(linha > 3 || linha < 1 || coluna > 3 || coluna < 1)
@@ -117,20 +135,17 @@ void InserirJogador2(char **M)
           }
       }
 
+//CORRECAO DE POSICAO DO VETOR
   linha = (linha - 1);
   coluna = (coluna - 1);
 
+//CASO PARA POSICAO DO TABULEIRO JA OCUPADA
     if( (*(*(M + linha) + coluna)) == 'x' || (*(*(M + linha) + coluna)) == 'o' )
       {
         while((*(*(M + linha) + coluna)) == 'x' || (*(*(M + linha) + coluna)) == 'o')
           {
-          system("cls");
-          printf("\n\t %c | %c | %c", (*(*(M + 0) + 0)), (*(*(M + 0) + 1)), (*(*(M + 0) + 2)));
-          printf("\n\t-----------");
-          printf("\n\t %c | %c | %c", (*(*(M + 1) + 0)), (*(*(M + 1) + 1)), (*(*(M + 1) + 2)));
-          printf("\n\t-----------");
-          printf("\n\t %c | %c | %c", (*(*(M + 2) + 0)), (*(*(M + 2) + 1)), (*(*(M + 2) + 2)));
-
+          Tabuleiro(M);
+     
           printf("\n\n-POSICAO JA OCUPADA\n\n");
           printf("\n\n-JOGADOR 2(x)-\n");
           printf("\nLINHA: ");
@@ -151,10 +166,13 @@ void InserirJogador2(char **M)
       }
   }
 
+
+//COORDENADA DE INSERCAO NO TABUEIRO DO JOGADOR 1
 void InserirJogador1(char **M)
   {
   int linha = 0, coluna = 0;
 
+//INSERCAO PADRAO
   printf("\n\n-JOGADOR 1(o)-\n");
   printf("\nLINHA: ");
   fflush(stdin);
@@ -163,6 +181,7 @@ void InserirJogador1(char **M)
   fflush(stdin);
   scanf("%d", &coluna);
 
+//LIMITADOR DE POSICAO DO JOGADOR
   if(linha > 3 || linha < 1 || coluna > 3 || coluna < 1)
       {
         while(linha > 3 || linha < 1 || coluna > 3 || coluna < 1)
@@ -178,20 +197,17 @@ void InserirJogador1(char **M)
           }
       }
 
+//CORRECAO DE POSICAO DO VETOR
   linha = (linha - 1);
   coluna = (coluna - 1);
 
+//CASO PARA POSICAO DO TABULEIRO JA OCUPADA
     if( (*(*(M + linha) + coluna)) == 'x' || (*(*(M + linha) + coluna)) == 'o' )
       {
         while((*(*(M + linha) + coluna)) == 'x' || (*(*(M + linha) + coluna)) == 'o')
           {
-          system("cls");
-          printf("\n\t %c | %c | %c", (*(*(M + 0) + 0)), (*(*(M + 0) + 1)), (*(*(M + 0) + 2)));
-          printf("\n\t-----------");
-          printf("\n\t %c | %c | %c", (*(*(M + 1) + 0)), (*(*(M + 1) + 1)), (*(*(M + 1) + 2)));
-          printf("\n\t-----------");
-          printf("\n\t %c | %c | %c", (*(*(M + 2) + 0)), (*(*(M + 2) + 1)), (*(*(M + 2) + 2)));
-
+          Tabuleiro(M);
+          
           printf("\n\n-POSICAO JA OCUPADA\n\n");
           printf("\n\n-JOGADOR 1(o)-\n");
           printf("\nLINHA: ");

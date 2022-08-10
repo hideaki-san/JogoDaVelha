@@ -17,13 +17,7 @@ int main()
       {
       for(n = 0; n < 9; n++)
         {
-        system("cls");
-        printf("\n\t %c | %c | %c", (*(*(C + 0) + 0)), (*(*(C + 0) + 1)), (*(*(C + 0) + 2)));
-        printf("\n\t-----------");
-        printf("\n\t %c | %c | %c", (*(*(C + 1) + 0)), (*(*(C + 1) + 1)), (*(*(C + 1) + 2)));
-        printf("\n\t-----------");
-        printf("\n\t %c | %c | %c", (*(*(C + 2) + 0)), (*(*(C + 2) + 1)), (*(*(C + 2) + 2)));
-
+        Tabuleiro(C);
 
           if(n % 2 != 0)
             {
@@ -39,13 +33,8 @@ int main()
             i = FinalizaJogo(C);
               if(i == 1)
                 {
-                system("cls");
                 n = 9;
-                printf("\n\t %c | %c | %c", (*(*(C + 0) + 0)), (*(*(C + 0) + 1)), (*(*(C + 0) + 2)));
-                printf("\n\t-----------");
-                printf("\n\t %c | %c | %c", (*(*(C + 1) + 0)), (*(*(C + 1) + 1)), (*(*(C + 1) + 2)));
-                printf("\n\t-----------");
-                printf("\n\t %c | %c | %c", (*(*(C + 2) + 0)), (*(*(C + 2) + 1)), (*(*(C + 2) + 2)));
+                Tabuleiro(C);
                 printf("\n\nJOGADOR 2(x) FOI O VENCEDOR");
                 printf("\n\n-JOGO FINALIZADO-\n");
                 C = AlocaMemoria();
@@ -53,13 +42,8 @@ int main()
                 }
               if(i == 2)
                 {
-                system("cls");
                 n = 9;
-                printf("\n\t %c | %c | %c", (*(*(C + 0) + 0)), (*(*(C + 0) + 1)), (*(*(C + 0) + 2)));
-                printf("\n\t-----------");
-                printf("\n\t %c | %c | %c", (*(*(C + 1) + 0)), (*(*(C + 1) + 1)), (*(*(C + 1) + 2)));
-                printf("\n\t-----------");
-                printf("\n\t %c | %c | %c", (*(*(C + 2) + 0)), (*(*(C + 2) + 1)), (*(*(C + 2) + 2)));
+                Tabuleiro(C);
                 printf("\n\nJOGADOR 1(o) FOI O VENCEDOR");
                 printf("\n\n-JOGO FINALIZADO-\n");
                 C = AlocaMemoria();
@@ -68,14 +52,10 @@ int main()
             }
         }
 
-      system("cls");
-      printf("\n\t %c | %c | %c", (*(*(C + 0) + 0)), (*(*(C + 0) + 1)), (*(*(C + 0) + 2)));
-      printf("\n\t-----------");
-      printf("\n\t %c | %c | %c", (*(*(C + 1) + 0)), (*(*(C + 1) + 1)), (*(*(C + 1) + 2)));
-      printf("\n\t-----------");
-      printf("\n\t %c | %c | %c", (*(*(C + 2) + 0)), (*(*(C + 2) + 1)), (*(*(C + 2) + 2)));
+      Tabuleiro(C);
 
       printf("\n\n-SAIR(0)-\n-JOGAR(1)-\n");
+      LiberarTabuleiro(C);
       C = AlocaMemoria();
       fflush(stdin);
       scanf("%d", &z);
